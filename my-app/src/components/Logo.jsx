@@ -1,15 +1,14 @@
 import logo from "../assets/logo.png";
 
-export default function Logo({ size = 100 }) {
+export default function Logo({ size = 220 }) {
   return (
-    <img
-      src={logo}
-      alt="My Follow-up Logo"
-      style={{
-        width: size,
-        height: size,
-        objectFit: "contain"
-      }}
-    />
+    <div className="logoWrapper" style={{ width: size, height: size }}>
+      <img
+        src={logo}
+        alt="My Follow-up Logo"
+        className="logoImage"
+      />
+      <div className="logoGlow"></div>
+    </div>
   );
 }
