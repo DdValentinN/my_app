@@ -5,9 +5,9 @@ export default function Home() {
     <div className="pageContent">
       <div className="hero">
         <Logo size={80} />
-        <h1 className="title">My Follow-up</h1>
+        <h1 className="title">My Follow-up Application</h1>
         <p className="subtitle">
-          Une app simple pour suivre tes trucs proprement (on construit ça étape par étape).
+          MFA c'est ton appli de suivi sportif ! (on construit ça étape par étape).
         </p>
       </div>
     </div>
