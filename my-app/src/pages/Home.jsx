@@ -4,10 +4,11 @@ export default function Home() {
   return (
     <div className="pageContent">
       <div className="hero">
-        <Logo size={300} />
-        <h1 className="title">My Follow-up Application</h1>
+        <div className="heroTop">
+          <Logo size={800} />
+        </div>
+
         <p className="subtitle">
-          Suivi des performances. Discipline. Focus.
         </p>
       </div>
     </div>

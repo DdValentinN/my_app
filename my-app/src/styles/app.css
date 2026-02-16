@@ -6,16 +6,12 @@
   --panel: rgba(255, 255, 255, 0.05);
   --border: rgba(255, 255, 255, 0.08);
   --text: #ffffff;
-  --muted: rgba(255, 255, 255, 0.6);
+  --muted: rgba(255, 255, 255, 0.75);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html,
-body,
-#root {
+html, body, #root {
   height: 100%;
   margin: 0;
 }
@@ -24,7 +20,7 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto;
   color: var(--text);
   background:
-    radial-gradient(800px 500px at 50% 0%, rgba(8, 148, 4, 0.35), transparent 60%),
+    radial-gradient(700px 400px at 50% 5%, rgba(8, 148, 4, 0.35), transparent 60%),
     var(--bg);
   overflow-x: hidden;
 }
@@ -37,13 +33,13 @@ body {
   flex-direction: column;
 }
 
+/* On réserve de la place pour la navbar en bas */
 .pageContent {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* on remonte le contenu */
-  padding-top: 120px; /* espace contrôlé en haut */
-  padding-bottom: 110px;
+  align-items: center;         /* ✅ centre verticalement le bloc */
+  padding: 24px 16px 130px;    /* ✅ le "130px" protège le texte de la navbar */
 }
 
 /* ================= HERO ================= */
@@ -52,64 +48,63 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px; /* espace réduit */
   text-align: center;
-  max-width: 800px;
+
+  gap: 14px;                   /* ✅ texte juste en dessous */
   animation: fadeUp 0.8s ease forwards;
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.title {
-  margin: 0;
-  font-size: clamp(42px, 6vw, 72px);
-  letter-spacing: -0.03em;
-  color: white; /* texte blanc */
+/* ✅ On limite la place max prise par le logo, pour éviter que le texte sorte */
+.heroTop {
+  /* hauteur max du "bloc logo" = écran - navbar - marges - texte */
+  max-height: calc(100vh - 130px - 24px - 24px - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .subtitle {
-  font-size: 17px;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
   color: var(--muted);
-  margin-top: 4px;
+  margin: 0;
+  padding: 0 10px;
 }
 
 /* ================= LOGO ================= */
 
 .logoWrapper {
   position: relative;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   animation: float 4s ease-in-out infinite;
+
+  /* ✅ important: on ne laisse jamais le logo dépasser son conteneur */
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .logoImage {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.7));
 }
 
 .logoGlow {
   position: absolute;
-  width: 130%;
-  height: 130%;
-  background: radial-gradient(
-    circle,
-    rgba(8, 148, 4, 0.4) 0%,
-    transparent 70%
-  );
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(8, 148, 4, 0.4) 0%, transparent 70%);
   border-radius: 50%;
-  filter: blur(50px);
+  filter: blur(55px);
   z-index: -1;
 }
 
