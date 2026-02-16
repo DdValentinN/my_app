@@ -1,27 +1,41 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Footer from "./components/Footer";
+import BottomNav from "./components/BottomNav";
+import "./styles/app.css";
+
+function Followups() {
+  return (
+    <div className="pageContent">
+      <div className="hero">
+        <h2 className="title" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>Follow-ups</h2>
+        <p className="subtitle">Page à construire juste après 👇</p>
+      </div>
+    </div>
+  );
+}
+
+function Settings() {
+  return (
+    <div className="pageContent">
+      <div className="hero">
+        <h2 className="title" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>Settings</h2>
+        <p className="subtitle">On ajoutera des options ensuite.</p>
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
   return (
     <BrowserRouter>
-      <div style={{ padding: 24, fontFamily: "system-ui", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-        
-        <nav style={{ display: "flex", gap: 12, marginBottom: 16 }}>
-          <Link to="/">Accueil</Link>
-          <Link to="/about">À propos</Link>
-        </nav>
+      <div className="page">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/followups" element={<Followups />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
 
-        <div style={{ flex: 1 }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </div>
-
-        <Footer />
-
+        <BottomNav />
       </div>
     </BrowserRouter>
   );
