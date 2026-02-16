@@ -12,7 +12,6 @@ export default function Logo({ size = 64 }) {
         <path
           d="M48 10c16.6 0 30 13.4 30 30v6.5c0 17.4-13.1 31.7-30 33.4C31.1 78.2 18 63.9 18 46.5V40c0-16.6 13.4-30 30-30Z"
           fill="url(#g)"
-          opacity="0.95"
         />
 
         <path
@@ -22,7 +21,7 @@ export default function Logo({ size = 64 }) {
 
         <path
           d="M38 46h18M38 51.5h12"
-          stroke="rgba(255,255,255,0.85)"
+          stroke="white"
           strokeWidth="3"
           strokeLinecap="round"
         />

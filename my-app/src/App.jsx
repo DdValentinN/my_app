@@ -6,10 +6,7 @@ import "./styles/app.css";
 function Followups() {
   return (
     <div className="pageContent">
-      <div className="hero">
-        <h2 className="title" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>Follow-ups</h2>
-        <p className="subtitle">Page à construire juste après 👇</p>
-      </div>
+      <h2 className="title" style={{ fontSize: "40px" }}>Follow-ups</h2>
     </div>
   );
 }
@@ -17,10 +14,7 @@ function Followups() {
 function Settings() {
   return (
     <div className="pageContent">
-      <div className="hero">
-        <h2 className="title" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>Settings</h2>
-        <p className="subtitle">On ajoutera des options ensuite.</p>
-      </div>
+      <h2 className="title" style={{ fontSize: "40px" }}>Settings</h2>
     </div>
   );
 }
