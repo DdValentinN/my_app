@@ -106,7 +106,7 @@ body {
 
 /* ================= LOGO FLOAT ================= */
 
-.hero svg {
+.hero img {
   animation: float 4s ease-in-out infinite;
 }
 
