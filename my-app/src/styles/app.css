@@ -1,9 +1,14 @@
 :root {
-  --bg: #0b0f17;
-  --panel: rgba(255, 255, 255, 0.06);
-  --border: rgba(255, 255, 255, 0.10);
-  --text: rgba(255, 255, 255, 0.92);
-  --muted: rgba(255, 255, 255, 0.62);
+  --bg: #0e0e10;
+  --red: #ff2e2e;
+  --dark-red: #b31217;
+  --green: #089404;
+  --orange: #ff6a00;
+
+  --panel: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: rgba(255, 255, 255, 0.95);
+  --muted: rgba(255, 255, 255, 0.55);
 }
 
 * {
@@ -18,18 +23,13 @@ body,
 }
 
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto;
   color: var(--text);
   background:
-    radial-gradient(900px 500px at 50% 10%, rgba(120, 140, 255, 0.25), transparent 60%),
-    radial-gradient(700px 380px at 20% 80%, rgba(80, 220, 180, 0.18), transparent 55%),
+    radial-gradient(800px 400px at 50% 10%, rgba(255, 46, 46, 0.25), transparent 60%),
+    radial-gradient(600px 400px at 20% 80%, rgba(8, 148, 4, 0.2), transparent 60%),
     var(--bg);
   overflow-x: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }
 
 .page {
@@ -78,9 +78,10 @@ a {
 
   background: linear-gradient(
     90deg,
-    #7c8cff,
-    #4fd1c5,
-    #7c8cff
+    var(--red),
+    var(--orange),
+    var(--green),
+    var(--red)
   );
   background-size: 200% 200%;
   -webkit-background-clip: text;
@@ -131,34 +132,31 @@ a {
   width: min(520px, 100%);
   background: var(--panel);
   border: 1px solid var(--border);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(16px);
   border-radius: 999px;
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
 
 .navItem {
   display: inline-flex;
-  align-items: center;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
   padding: 12px 10px;
   border-radius: 999px;
   color: var(--muted);
-  transition: all 0.25s ease;
-  font-weight: 500;
+  transition: 0.25s ease;
 }
 
 .navItem:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text);
-  transform: translateY(-2px);
+  background: rgba(255, 46, 46, 0.15);
+  color: white;
 }
 
 .navItemActive {
-  background: rgba(255, 255, 255, 0.14);
-  color: var(--text);
+  background: linear-gradient(90deg, var(--red), var(--dark-red));
+  color: white;
 }

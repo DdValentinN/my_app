@@ -1,31 +1,22 @@
-export default function Logo({ size = 64 }) {
+export default function Logo({ size = 90 }) {
   return (
-    <div style={{ width: size, height: size }}>
-      <svg viewBox="0 0 96 96" width={size} height={size} fill="none">
-        <defs>
-          <linearGradient id="g" x1="16" y1="10" x2="80" y2="86">
-            <stop stopColor="rgba(120,140,255,1)" />
-            <stop offset="1" stopColor="rgba(80,220,180,1)" />
-          </linearGradient>
-        </defs>
+    <svg width={size} height={size} viewBox="0 0 100 100">
+      <defs>
+        <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#ff2e2e" />
+          <stop offset="50%" stopColor="#ff6a00" />
+          <stop offset="100%" stopColor="#089404" />
+        </linearGradient>
+      </defs>
 
-        <path
-          d="M48 10c16.6 0 30 13.4 30 30v6.5c0 17.4-13.1 31.7-30 33.4C31.1 78.2 18 63.9 18 46.5V40c0-16.6 13.4-30 30-30Z"
-          fill="url(#g)"
-        />
+      <circle cx="50" cy="50" r="45" fill="url(#logoGrad)" />
 
-        <path
-          d="M33 40.5c0-2.5 2-4.5 4.5-4.5h21c2.5 0 4.5 2 4.5 4.5V55c0 2.5-2 4.5-4.5 4.5h-21C35 59.5 33 57.5 33 55V40.5Z"
-          fill="rgba(11,15,23,0.72)"
-        />
-
-        <path
-          d="M38 46h18M38 51.5h12"
-          stroke="white"
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
-      </svg>
-    </div>
+      <path
+        d="M35 40h30M35 50h20"
+        stroke="white"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+    </svg>
   );
 }
