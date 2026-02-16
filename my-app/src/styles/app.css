@@ -1,14 +1,12 @@
 :root {
   --bg: #0e0e10;
-  --red: #ff2e2e;
-  --dark-red: #b31217;
   --green: #089404;
-  --orange: #ff6a00;
+  --dark-green: #064d02;
 
-  --panel: rgba(255, 255, 255, 0.04);
+  --panel: rgba(255, 255, 255, 0.05);
   --border: rgba(255, 255, 255, 0.08);
-  --text: rgba(255, 255, 255, 0.95);
-  --muted: rgba(255, 255, 255, 0.55);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.6);
 }
 
 * {
@@ -26,8 +24,7 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto;
   color: var(--text);
   background:
-    radial-gradient(900px 500px at 50% 5%, rgba(255, 46, 46, 0.25), transparent 60%),
-    radial-gradient(800px 400px at 20% 85%, rgba(8, 148, 4, 0.25), transparent 60%),
+    radial-gradient(800px 500px at 50% 0%, rgba(8, 148, 4, 0.35), transparent 60%),
     var(--bg);
   overflow-x: hidden;
 }
@@ -44,8 +41,9 @@ body {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 28px 18px 110px;
+  align-items: flex-start; /* on remonte le contenu */
+  padding-top: 120px; /* espace contrôlé en haut */
+  padding-bottom: 110px;
 }
 
 /* ================= HERO ================= */
@@ -54,16 +52,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 12px; /* espace réduit */
   text-align: center;
   max-width: 800px;
-  animation: fadeUp 1s ease forwards;
+  animation: fadeUp 0.8s ease forwards;
 }
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(25px);
   }
   to {
     opacity: 1;
@@ -73,35 +71,15 @@ body {
 
 .title {
   margin: 0;
-  font-size: clamp(44px, 7vw, 80px);
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-
-  background: linear-gradient(
-    90deg,
-    var(--red),
-    var(--orange),
-    var(--green),
-    var(--red)
-  );
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  animation: gradientMove 6s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  font-size: clamp(42px, 6vw, 72px);
+  letter-spacing: -0.03em;
+  color: white; /* texte blanc */
 }
 
 .subtitle {
-  font-size: 18px;
+  font-size: 17px;
   color: var(--muted);
-  max-width: 520px;
-  line-height: 1.6;
+  margin-top: 4px;
 }
 
 /* ================= LOGO ================= */
@@ -118,37 +96,27 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  z-index: 2;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
 }
 
 .logoGlow {
   position: absolute;
-  width: 140%;
-  height: 140%;
+  width: 130%;
+  height: 130%;
   background: radial-gradient(
     circle,
-    rgba(255, 46, 46, 0.4) 0%,
-    rgba(255, 106, 0, 0.3) 30%,
-    rgba(8, 148, 4, 0.25) 60%,
-    transparent 80%
+    rgba(8, 148, 4, 0.4) 0%,
+    transparent 70%
   );
   border-radius: 50%;
-  filter: blur(60px);
-  z-index: 1;
-  animation: pulse 3s ease-in-out infinite;
+  filter: blur(50px);
+  z-index: -1;
 }
 
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
-}
-
-@keyframes pulse {
-  0% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 0.9; transform: scale(1.05); }
-  100% { opacity: 0.6; transform: scale(1); }
 }
 
 /* ================= NAVBAR ================= */
@@ -167,13 +135,13 @@ body {
   width: min(520px, 100%);
   background: var(--panel);
   border: 1px solid var(--border);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(14px);
   border-radius: 999px;
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
 }
 
 .navItem {
@@ -187,11 +155,11 @@ body {
 }
 
 .navItem:hover {
-  background: rgba(255, 46, 46, 0.15);
+  background: rgba(8, 148, 4, 0.2);
   color: white;
 }
 
 .navItemActive {
-  background: linear-gradient(90deg, var(--red), var(--dark-red));
+  background: linear-gradient(90deg, var(--green), var(--dark-green));
   color: white;
 }

@@ -1,6 +1,6 @@
 import logo from "../assets/logo.png";
 
-export default function Logo({ size = 220 }) {
+export default function Logo({ size = 200 }) {
   return (
     <div className="logoWrapper" style={{ width: size, height: size }}>
       <img
